@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+body{
+    height: 100vh;
+    /* background-color:rgb(48, 120, 187); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 5px black;
+    background: url("calcbgimg.jpg");
+    backdrop-filter: blur(2px);
+}
+h1{
+    margin-bottom: 60px;
+    font-family: cursive;
+    font-size:50px;
+}
+.main {
+    width: 50vw;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+    justify-content: space-between;
+    border: solid 5px rgb(13, 12, 12);
+    padding: 20px;
+    background-color: rgb(154, 155, 156);
+}
+input , select{
+    font-size:100%;
+    padding:5px 20px;
+}
+select{
+    color: white;
+    background-color: rgb(71, 68, 68);
+}
+select:hover{
+    background-color: rgb(23, 22, 22);
+}
+.valuesAndUnits {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+ #units{
+    width: 100%;
+    min-height: 20%;
+}
+.first , .second {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+#button{
+    width: 100%;
+    padding: 10px 10px;
+}
+#button:hover{
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px 5px rgb(39, 40, 41) ;
+}
+.inp{
+    font-weight: bolder;
+}

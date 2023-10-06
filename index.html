@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>     <title>Unit Convert-CalC in JavaScript</title>
+    <link rel="stylesheet" href="UCstyle.css">
+
+</head>
+<body>
+        <!-- Unit Converter Code -->
+<h1>Temperature Converter</h1>
+    <div class="main">
+        
+        <!-- <div class="measurementUnit"> -->
+            <select name="units" id="units">
+                <option value="temp">Temperature</option>
+                <option value="area">Area</option>
+                <option value="length">Length</option>
+                <option value="mass">Mass</option>
+                <option value="time">Time</option>
+                <option value="dtr">Data Transfer Rate</option>
+            </select>
+        <!-- </div> -->
+
+        <div class="valuesAndUnits">
+            <div class="first">
+                <input type="number" class="inp"  id="firstinput">
+                <select name="firstunit" id="firstunit">
+                    <option value="cel">Celsius (°C)</option>
+                    <option value="fah">Fahrenheit(°F)</option>
+                    <option value="kel">Kelvin</option>
+                </select>
+            </div>
+               <span style="font-size:30px; font-weight:bold;">=</span>
+
+            <div class="second">
+
+                <input type="number" class="inp" id="secondinput" value="">
+                <!-- <p id="secondinput"> 0 </p> -->
+
+                <select name="secondunit" id="secondunit">
+                    <option value="cel">Celsius (°C)</option>
+                    <option value="fah">Fahrenheit(°F)</option>
+                    <option value="kel">Kelvin</option>
+                </select>
+
+            </div>
+        </div>
+        <!-- <div class="convertButton"> -->
+
+            <input type="button"  id="button" value="Convert" onclick="convertUnit()">
+
+        <!-- </div> -->
+    </div>
+
+<!-- <script src="UCjs.js"></script> -->
+<script>
+
+    function convertUnit() {
+
+        let selectedUnit = document.getElementById('units').value;
+        let v = document.getElementById('firstinput').value;
+        let res = document.getElementById('secondinput');
+        let fu = document.getElementById('firstunit');
+        let su = document.getElementById('secondunit');
+
+        // v.addEventListener("keyup" , convertUnit);
+        fu.addEventListener("change" , convertUnit);
+        su.addEventListener("change" , convertUnit);
+
+        let fuv = fu.value;
+        let suv = su.value;
+        
+
+        if( selectedUnit === "temp"){
+            /*
+            NOT WORKING SWITCH PROGRRAM FOR THIS
+            switch (fu.value && su.value) {
+                case 'cel' && 'ocel' : { res.value= v.value;
+                    break;}
+                case 'cel' && 'ofah' : { 
+                     break;}
+                case 'cel' && 'okel' : { 
+                    break;}
+                case 'fah' && 'ocel' : { res.value= 444;                         //error
+                     break;}
+                case 'fah' && 'ofah' : { res.value= fi*1;                          //error
+                    break;}
+                case 'fah' && 'okel' : { 
+                    break;}
+                case ('kel' && 'ocel') : {  
+                     break;}
+                case 'kel' && 'ofah' : { 
+                     break;}
+                case 'kel' && 'okel' : { res.value= fi;
+                     break;}
+            }
+            */
+            if( fuv==="cel" && suv==="fah"){
+                res.value = (v*9/5 + 32).toFixed(3);
+            }
+            else if(fuv==="cel" && suv==="kel"){
+                res.value = (v*1+273.15).toFixed(3);
+            }
+            else if(fuv==="fah" && suv==="cel"){
+                res.value = ((v*1 -32)*5/9).toFixed(3);
+            }
+            else if(fuv==="fah" && suv==="kel"){
+                res.value = ((v-32)*5/9 + 273.15).toFixed(3);
+            }
+            else if(fuv==="kel" && suv==="cel"){
+                res.value = (v - 273.15).toFixed(3);
+            }
+            else if(fuv==="kel" && suv==="fah"){
+                res.value = ((v- 273.15)*9/5 +32).toFixed(3);
+            }
+            else {
+                res.value = v;
+            }
+        }
+}
+</script>
+</body>
+</html>
